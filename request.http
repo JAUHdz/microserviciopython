@@ -1,0 +1,30 @@
+###
+GET http://127.0.0.1:8000/obtener/personas
+
+###
+POST http://127.0.0.1:8000/personas/
+Content-Type: application/json
+
+{
+  "nombre": "Lucía",
+  "apellido_paterno": "Martínez",
+  "apellido_materno": "López",
+  "fecha_nacimiento": "1985-05-15",
+  "sexo": "M",
+  "curp": "LUML850515MDFRRC04",
+  "direccion": {
+    "calle": "Calle del Sol",
+    "numero": "456",
+    "colonia": "Jardines",
+    "municipio": "Guadalajara",
+    "estado": "Jalisco",
+    "cp": "44100"
+  },
+  "ine": {
+    "clave_elector": "XYZ987654321"
+  }
+}
+
+###
+DELETE http://127.0.0.1:8000/personas/curp/LUML850515MDFRRC04
+
