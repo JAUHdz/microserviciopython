@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, text
 from sqlalchemy.orm import declarative_base, sessionmaker
 
 
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://avnadmin:AVNS_LlSOxqCg5PMIKPX6JPu@mysql-19a77c38-uttt-944e.j.aivencloud.com:12364/logistica"
+SQLALCHEMY_DATABASE_URL = "mysql+pymysql://avnadmin:AVNS_LlSOxqCg5PMIKPX6JPu@mysql-19a77c38-uttt-944e.j.aivencloud.com:12364/profesionusuariodb"
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 

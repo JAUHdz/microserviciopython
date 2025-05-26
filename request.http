@@ -28,3 +28,23 @@ Content-Type: application/json
 ###
 DELETE http://127.0.0.1:8000/personas/curp/LUML850515MDFRRC04
 
+
+
+###
+POST http://127.0.0.1:8000/profesionesusuario
+Content-Type: application/json
+
+{
+  "persona_id": 1,
+  "profesion_id": 1
+}
+
+###
+GET http://127.0.0.1:8000/profesionesusuario
+
+###
+GET http://127.0.0.1:8000/profesionesusuario/profesion/1
+
+###
+GET http://127.0.0.1:8000/profesionesusuario/detalle
+###https://python-eic3.onrender.com/

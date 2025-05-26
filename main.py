@@ -19,34 +19,19 @@ def get_db():
 def read_root():
     return {"message": "¡Hola, FastAPI desde Windows!"}
 
-@app.post("/personas/", response_model=schemas.Persona)
-def crear_persona(persona: schemas.PersonaCreate, db: Session = Depends(get_db)):
-    return crud.crear_persona(db, persona)
+# RUTAS PROFESIONES-USUARIO
+@app.post("/profesionesusuario/", response_model=schemas.ProfesionUsuario)
+def crear_profesion_usuario(data: schemas.ProfesionUsuarioCreate, db: Session = Depends(get_db)):
+    return crud.crear_profesion_usuario(db, data)
 
-@app.get("/personas/curp/{curp}", response_model=schemas.Persona)
-def obtener_por_curp(curp: str, db: Session = Depends(get_db)):
-    persona = crud.obtener_persona_por_curp(db, curp)
-    if not persona:
-        raise HTTPException(status_code=404, detail="Persona no encontrada")
-    return persona
+@app.get("/profesionesusuario/", response_model=List[schemas.ProfesionUsuario])
+def obtener_profesiones_usuario(db: Session = Depends(get_db)):
+    return crud.obtener_profesiones_usuario(db)
 
-@app.get("/obtener/personas", response_model=List[schemas.Persona])
-def obtener_personas(db: Session = Depends(get_db)):
-    persona = crud.obtener_personas(db)
-    if not persona:
-        raise HTTPException(status_code=404, detail="Personas no encontrada")
-    return persona
+@app.get("/profesionesusuario/profesion/{profesion_id}", response_model=List[schemas.ProfesionUsuario])
+def obtener_profesiones_usuario_por_profesion(profesion_id: int, db: Session = Depends(get_db)):
+    return crud.obtener_profesiones_usuario_por_profesion(db, profesion_id)
 
-@app.get("/personas/{persona_id}", response_model=schemas.Persona)
-def obtener_por_id(persona_id: int, db: Session = Depends(get_db)):
-    persona = crud.obtener_persona_por_id(db, persona_id)
-    if not persona:
-        raise HTTPException(status_code=404, detail="Persona no encontrada")
-    return persona
-
-@app.delete("/personas/curp/{curp}")
-def eliminar_por_curp(curp: str, db: Session = Depends(get_db)):
-    persona = crud.eliminar_persona_por_curp(db, curp)
-    if not persona:
-        raise HTTPException(status_code=404, detail="Persona no encontrada")
-    return {"mensaje": "Persona eliminada correctamente"}
+@app.get("/profesionesusuario/detalle/", response_model=List[schemas.ProfesionUsuarioDetalle])
+def obtener_detalle_profesiones_usuario(db: Session = Depends(get_db)):
+    return crud.obtener_detalle_profesiones_usuario(db)
