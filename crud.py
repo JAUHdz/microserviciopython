@@ -85,7 +85,7 @@ def obtener_detalle_profesiones_usuario(db: Session):
 
 def obtener_profesiones_usuario_por_nombre_profesion(db: Session, nombre_profesion: str) -> List[schemas.ProfesionUsuarioDetalle]:
     # 1. Consultar microservicio para obtener profesión por nombre
-    url = f"https://python-eic3.onrender.com/profesiones/profesiones/nombre/{nombre_profesion}"
+    url = f"https://python-eic3.onrender.com/profesiones/nombre/{nombre_profesion}"
     try:
         response = requests.get(url)
         if response.status_code != 200:
