@@ -5,6 +5,7 @@ from fastapi import HTTPException
 from datetime import date
 import uuid
 from uuid import UUID
+from typing import List
 
 # ProfesionesUsuario
 def persona_existe(persona_id: int) -> bool:
