@@ -6,7 +6,7 @@ from uuid import UUID
 # ----------------
 class ProfesionUsuarioBase(BaseModel):
     persona_id: int
-    profesion_id: int
+    profesion_id: UUID  # <-- cambia a UUID
 
 class ProfesionUsuarioCreate(ProfesionUsuarioBase):
     pass
@@ -24,7 +24,7 @@ class ProfesionUsuarioDetalle(BaseModel):
     id: UUID
     persona_id: int
     nombre_persona: str
-    profesion_id: int
+    profesion_id: UUID  # <-- cambia a UUID
     nombre_profesion: str
 
     class Config:
