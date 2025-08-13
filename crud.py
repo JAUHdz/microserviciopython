@@ -13,7 +13,7 @@ def persona_existe(persona_id: str) -> bool:
         response = requests.get("https://microservicioinenew.onrender.com/api/ine/consulta")
         if response.status_code == 200:
             personas = response.json()
-            return any(str(p['persona_id']) == persona_id for p in personas)
+            return any(str(p['persona_id']).strip().lower() == persona_id.strip().lower() for p in personas)
     except Exception:
         return False
     return False
