@@ -8,15 +8,16 @@ from uuid import UUID
 from typing import List
 
 # ProfesionesUsuario
-def persona_existe(persona_id: int) -> bool:
+def persona_existe(persona_id: str) -> bool:
     try:
         response = requests.get("https://microservicioinenew.onrender.com/api/ine/consulta")
         if response.status_code == 200:
             personas = response.json()
-            return any(p['persona_id'] == persona_id for p in personas)
+            return any(str(p['persona_id']) == persona_id for p in personas)
     except Exception:
         return False
     return False
+
 
 def profesion_existe(profesion_id: UUID) -> bool:
     try:
