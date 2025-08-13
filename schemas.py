@@ -5,7 +5,7 @@ from uuid import UUID
 # ProfesionUsuario base
 # ----------------
 class ProfesionUsuarioBase(BaseModel):
-    persona_id: int
+    persona_id: UUID 
     profesion_id: UUID  # <-- cambia a UUID
 
 class ProfesionUsuarioCreate(ProfesionUsuarioBase):
@@ -22,7 +22,7 @@ class ProfesionUsuario(ProfesionUsuarioBase):
 # ----------------
 class ProfesionUsuarioDetalle(BaseModel):
     id: UUID
-    persona_id: int
+    persona_id: UUID 
     nombre_persona: str
     profesion_id: UUID  # <-- cambia a UUID
     nombre_profesion: str
