@@ -38,7 +38,7 @@ def crear_profesion_usuario(db: Session, relacion: schemas.ProfesionUsuarioCreat
 
     nueva_relacion = models.ProfesionUsuario(
         id=str(uuid.uuid4()),
-        persona_id=relacion.persona_id,
+        persona_id=str(relacion.persona_id),
         profesion_id=str(relacion.profesion_id)  # <-- aquí conviertes UUID a string
     )
     db.add(nueva_relacion)
